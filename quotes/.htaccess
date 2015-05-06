@@ -1,0 +1,13 @@
+RewriteEngine On
+
+RewriteBase /
+
+# Redirect Trailing Slashes...
+
+RewriteRule ^(.*)/$ /$1 [L,R=301]
+
+# Handle Front Controller...
+RewriteCond $1 !^(index\.php|images|quotes|css|js|robots\.txt|favicon\.ico)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ quotes/index.php/$1 [L,QSA]
